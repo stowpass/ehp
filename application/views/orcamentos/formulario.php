@@ -8,14 +8,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 border 
                 border-primary 
                 p-2 mb-1 bg-info text-white">
-  <h3 class="box-title ">Cadastro de Clientes</h3>
+  <h3 class="box-title ">Cadastro de Orçamentos</h3>
   
 </div>
 <!-- /.box-header -->
 
 <!-- form start -->
 <form role="form" action="geral/<?=$acao;?>" method="post">
-<?php // //foreach ($ver as $registro) :?>
+<?php //foreach ($lista as $registro) :?>
 
   <div class="box-body fluid border border-primary">
       
@@ -24,10 +24,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <label for="exampleFormControlSelect1">*Nome do Cliente:</label>
           <select class="form-control" name="tipo_pessoa" id="tipo_pessoa" required>
            <option    value="">Selecione Cliente</option>
-            <option   value="fisica"    >Fisica</option>
-            <option   value="juridica"  >Juridica</option>
-         
+           <?php foreach ($clientes as $registro):?>
+            <option   value="<?php echo $registro['id']?>"><?php echo $registro['nome'];?></option>
+            
+<?php endforeach; ?>
           </select>
+           
         </div>
     
     </div>
@@ -41,11 +43,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       >
       </div>
         <div class="form-group col-lg-2">
-          <label for="exampleInputPassword1">Data:</label>
-          <input type="text" class="form-control" 
-                      id="endereco_numero"
-                      name="endereco_numero" 
-                      value="<?php //$registro['endereco_numero']; ?>"
+          <label for="form_datetime">Data:</label>
+          <input type="text" class="form-control form_datetime"  
+                      id="data"
+                      name="data" 
+                      value="<?php echo date('d-m-Y'); ?>"
                       >
         </div>
 

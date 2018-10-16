@@ -9,18 +9,17 @@
                 border 
                 border-primary 
                 p-2 mb-1 bg-info text-white">
-  <h3 class="box-title ">Listagem de Clientes:</h3>
+  <h3 class="box-title ">Listagem de Orçamentos:</h3>
   
 </div>
-<a href="<?php echo site_url('orcamento/novo'); ?>" class="btn btn-primary mb-2">Novo Cliente</a>
+<a href="<?php echo site_url('orcamento/novo'); ?>" class="btn btn-primary mb-2">Novo Orçamento</a>
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">Nome</th>
-      <th scope="col">Endereço</th>
-      <th scope="col">Telefone</th>
-      <th scope="col">Bairro</th>
-      <th scope="col">Cidade</th>
+      <th scope="col">orcamento</th>
+      <th scope="col">Cliente</th>
+      <th scope="col">Descrição</th>
+      <th scope="col">Valor</th>
       <th scope="col" >Ações</th>
 
     </tr>
@@ -28,18 +27,17 @@
   
   <tbody>
 
-  <?php foreach ($clientes as $cliente) : ?>
+  <?php foreach ($orcamentos as $orcamento) : ?>
   
     <tr>
       
-         <td><?php echo $cliente['nome'] ?></td>
-         <td><?php echo $cliente['endereco'] ?></td>
-         <td><?php echo $cliente['telefone_celular1'] ?></td>
-         <td><?php echo $cliente['bairro'] ?></td>         
-         <td><?php echo $cliente['cidade'] ?></td>
+         <td><?php echo $orcamento['id'] ?></td>
+         <td><?php echo $orcamento['nome_cliente'] ?></td>
+         <td><?php echo $orcamento['descricao'] ?></td>
+         <td><?php echo $orcamento['valor'] ?></td>         
          <td>
-        <a href="<?php echo site_url('geral/editarcliente/'.$cliente['id']) ?>" ><i class="fa fa-edit"></i> </a> | 
-            <a href="<?php echo site_url('gestao/subtrair/'.$cliente['id']) ?>"><i class="fa fa-trash"></i></a>
+        <a href="<?php echo site_url('geral/editarorcamento/'.$orcamento['id']) ?>" ><i class="fa fa-edit"></i> </a> | 
+            <a href="<?php echo site_url('gestao/subtrair/'.$orcamento['id']) ?>"><i class="fa fa-trash"></i></a>
           
           </td>
 

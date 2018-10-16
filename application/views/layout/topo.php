@@ -15,7 +15,7 @@
   </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light   navbar-fixed-top">
   <a class="navbar-brand" href="<?php echo site_url('cliente') ?>">MENU | </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Alterna navegação">
     <span class="navbar-toggler-icon"></span>
@@ -27,6 +27,10 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="<?php echo site_url('cliente') ?>">Lista Clientes</a>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link" href="<?php echo site_url('usuarios/novo') ?>">Usuarios</a>
       </li>
  
       <li class="nav-item">
@@ -45,7 +49,6 @@
     </ul>
   </div>
 </nav>
-
 <hr>
 
 

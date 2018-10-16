@@ -13,7 +13,11 @@ class OrcamentoModel extends CI_Model {
                 eval('$this->' . $chave . ' = $_POST["' . $chave . '"];');
             }
             
-            return $this->db->insert('clientes', $this);
+            return $this->db->insert('orcamentos', $this);
 
     }
+
+        
+
+    
 }

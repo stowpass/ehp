@@ -16,7 +16,10 @@ class OrcamentoController extends CI_Controller {
 	public function novo()
 	{
 		$this->load->view('layout/topo');
-		$this->load->view('orcamentos/formulario');
+		$this->load->model('clientemodel');
+		$lista['clientes'] = $this->clientemodel->listarClientes();
+		$lista['acao'] = "salvar";
+		$this->load->view('orcamentos/formulario',$lista);
 		$this->load->view('layout/rodape');
 
     }

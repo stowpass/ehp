@@ -48,7 +48,43 @@ class ClienteModel extends CI_Model {
         return $this->db->from('clientes')->where('id', $id)->get()->result_array();
     }       
 
+
+    public function campos(){
+
+        $this->db->select("SELECT COLUMN_NAME as indice
+                     FROM INFORMATION_SCHEMA.COLUMNS 
+                     WHERE TABLE_NAME = 'clientes'",false);
+        $campos = $this->db->get('clientes');
+        return $campos;
+        
+    }
+
     public function vazio()
+
+
+    {
+
+        //essa linha vai no banco e traz os nomes dos campos - indices
+        $query = $this->db->query("SELECT COLUMN_NAME as nome_campo
+        FROM INFORMATION_SCHEMA.COLUMNS 
+        WHERE TABLE_NAME = 'clientes'");
+        //Nesse momento eu pego esses nomes e coloco em um array
+        $campos = $query->result_array();
+        //agora nessse momento eu crio a estrutura para ser 
+        //apresentado na minha tela no formato de array de array
+        $vazio = array(0 => array());
+        //faço o laço de repetição
+        foreach($campos as $campo){
+            $vazio[0][$campo['nome_campo']] = "";
+        }
+        return $vazio;
+
+    }
+
+/* ANTIGO METODO VAZIO
+    public function vazio()
+
+
     {
         return array (0=>array(
                         "tipo_pessoa"=>"",
@@ -75,6 +111,8 @@ class ClienteModel extends CI_Model {
         ));
 
     }
+
+   */
     
 }
 
